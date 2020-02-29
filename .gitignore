@@ -1,0 +1,5 @@
+/config/config.js
+node_modules/
+.eslintrc.js
+.DS_Store
+foodimgs/
