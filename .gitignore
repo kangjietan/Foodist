@@ -3,3 +3,4 @@ node_modules/
 .eslintrc.js
 .DS_Store
 foodimgs/
+client/dist/bundle.js

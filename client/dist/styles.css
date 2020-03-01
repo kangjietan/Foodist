@@ -1,0 +1,12 @@
+.search-container {
+  width: 100vw;
+  display: flex;
+}
+
+.form-row {
+  margin: 10px;
+}
+
+.navbar {
+  width: 100%;
+}
