@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import searchYelp from '../../../api/searchYelp.js';
-import Restaurant from './Restaurant.jsx';
 import Search from './Search.jsx';
+import Gallery from './Gallery.jsx';
+import data from '../../../data.js'
 
 class App extends Component {
   constructor(props) {
@@ -24,10 +25,11 @@ class App extends Component {
   // }
 
   render() {
+    console.log(data.dishes);
     return (
       <div>
         <Search />
-        {this.state.list.map((entry) => <Restaurant entry={entry} />)}
+        <Gallery list={data.dishes} />
       </div>
     );
   }

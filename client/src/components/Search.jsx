@@ -24,19 +24,22 @@ class Search extends Component {
     const { food, location } = this.state;
 
     return(
-      <div className="search-container container">
-        <nav className="navbar">
-          <a className="navbar-brand">Test</a>
-          <form className="form-row">
-            <div className="col">
-              <input type="text" className="form-control" name="food" placeholder="Food...." value={food} onChange={this.handleChange} />
-            </div>
-            <div className="col">
-              <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={this.handleChange} />
-            </div>
-            <button className="btn btn-outline-secondary" type="button">Search</button>
-          </form>
-        </nav>
+      <div className="search-container">
+        <div className="container">
+          <nav className="navbar navbar-light">
+            <img src="food.svg" className="search-icon" alt="Icon made by Vectors Market from www.flaticon.com"/>
+            <a className="navbar-brand">Foodist</a>
+            <form className="form-row">
+              <div className="col">
+                <input type="text" className="form-control" name="food" placeholder="Food...." value={food} onChange={this.handleChange} />
+              </div>
+              <div className="col">
+                <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={this.handleChange} />
+              </div>
+              <button className="btn btn-outline-secondary btn-search" type="button">Search</button>
+            </form>
+          </nav>
+        </div>
       </div>
     );
   }

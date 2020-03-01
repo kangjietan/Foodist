@@ -7,7 +7,7 @@ const searchYelp = (term, location) => {
 
   const options = {
     method: 'GET',
-    headers: { 'Authorization': YELP_API_KEY },
+    headers: { Authorization: YELP_API_KEY },
     params: {
       term,
       location,
