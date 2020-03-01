@@ -6,28 +6,28 @@ class Search extends Component {
 
     this.state = {
       food: '',
-      location: 'San Francisco'
-    }
+      location: 'San Francisco',
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
+    const { target } = event;
+    const { name } = target;
+    const { value } = target;
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   render() {
     const { food, location } = this.state;
 
-    return(
+    return (
       <div className="search-container">
         <div className="container">
           <nav className="navbar navbar-light">
-            <img src="food.svg" className="search-icon" alt="Icon made by Vectors Market from www.flaticon.com"/>
+            <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com"/>
             <a className="navbar-brand">Foodist</a>
             <form className="form-row">
               <div className="col">
