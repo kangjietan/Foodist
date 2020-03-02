@@ -92,6 +92,8 @@
   border: 1px solid #eeeeef;
   margin: 24px 0;
   margin-right: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .restaurant-image-box {
@@ -109,4 +111,9 @@
 
 .btn-search {
   box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+  background-image: url("./search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 3vw;
+  background-size: 2vw;
 }

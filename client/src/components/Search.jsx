@@ -29,16 +29,16 @@ class Search extends Component {
       <div className="search-container">
         <div className="container">
           <nav className="navbar navbar-light">
-            <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com"/>
+            <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com" />
             <div className="navbar-brand">Foodist</div>
             <form className="form-row">
               <div className="col">
-                <input type="text" className="form-control" name="food" placeholder="Food...." value={food} onChange={this.handleChange} />
+                <input type="text" className="form-control" name="food" placeholder="Food, Drinks, Restaurants, ...." value={food} onChange={this.handleChange} />
               </div>
               <div className="col">
                 <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={(event) => { this.handleChange(event); update(location); }} />
               </div>
-              <button className="btn btn-outline-secondary btn-search" type="button">Search</button>
+              <button className="btn btn-outline-secondary btn-search" type="button" aria-label="search" alt="Icon made by Those Icons from www.flaticon.com" />
             </form>
           </nav>
         </div>

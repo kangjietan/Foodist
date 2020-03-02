@@ -6,6 +6,13 @@ const Restaurant = ({ entry }) => (
     <div className="restaurant-image-box">
       <img src={entry.image_url} alt="" className="restaurant-image" />
     </div>
+    <div className="restaurant-info-box">
+      <div className="restaurant-info">
+        <div>{entry.name}</div>
+        <div>{entry.location.address1}</div>
+        <div>{entry.phone}</div>
+      </div>
+    </div>
   </div>
 );
 
