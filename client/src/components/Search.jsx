@@ -30,7 +30,7 @@ class Search extends Component {
         <div className="container">
           <nav className="navbar navbar-light">
             <div className="navbar-brand">
-              <div className= "logo-box" onClick={home} role="button">
+              <div className="logo-box" onClick={home} role="presentation">
                 <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com" />
                 Foodist
               </div>
@@ -54,6 +54,7 @@ class Search extends Component {
 Search.propTypes = {
   update: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
+  home: PropTypes.func.isRequired,
 };
 
 export default Search;

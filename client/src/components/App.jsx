@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 import React, { Component } from 'react';
 import searchYelp from '../../../api/searchYelp.js';
 import Search from './Search.jsx';
 import Gallery from './Gallery.jsx';
-import RestaurantsList from './RestaurantsList.jsx'
-import data from '../../../data.js'
+import RestaurantsList from './RestaurantsList.jsx';
+import data from '../../../data.js';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class App extends Component {
 
     this.state = {
       list: [],
-      dishes: [],
       showRestaurants: false,
       searchLocation: 'San Francisco',
       loading: false,

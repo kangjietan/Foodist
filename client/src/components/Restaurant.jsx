@@ -32,11 +32,7 @@ Restaurant.propTypes = {
     review_count: PropTypes.number,
     rating: PropTypes.number,
     price: PropTypes.string,
-  }),
-};
-
-Restaurant.defaultProps = {
-  entry: {},
+  }).isRequired,
 };
 
 export default Restaurant;
