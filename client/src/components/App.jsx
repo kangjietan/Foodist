@@ -62,7 +62,7 @@ class App extends Component {
       return (
         <div>
           <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
-          <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" alt="loading" />
+          {/* <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" alt="loading" className="loading-gif" /> */}
         </div>
       );
     }

@@ -8,12 +8,16 @@ const Restaurant = ({ entry }) => (
     </div>
     <div className="restaurant-info-box">
       <div className="restaurant-info">
-        <div>{entry.name}</div>
-        <div>{entry.location.address1}</div>
-        <div>{entry.display_phone}</div>
-        <div>{entry.review_count}</div>
-        <div>{entry.rating}</div>
-        <div>{entry.price}</div>
+        <div className="main-info">
+          <div className="main-name">{entry.name}</div>
+          <div>{entry.location.address1}</div>
+          <div>{entry.display_phone}</div>
+        </div>
+        <div className="misc-info">
+          <div>{`${entry.rating}/5`}</div>
+          <div>{`${entry.review_count} ratings`}</div>
+          <div>{entry.price}</div>
+        </div>
       </div>
     </div>
   </div>
