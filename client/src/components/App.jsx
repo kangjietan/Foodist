@@ -26,7 +26,7 @@ class App extends Component {
   handleSearch(params) {
     const query = params;
     const { searchLocation } = this.state;
-    const location = params.location ? undefined : searchLocation;
+    const location = params.location === undefined ? searchLocation : params.location;
     query.location = location;
     searchYelp(query)
       .then((response) => {
@@ -47,7 +47,7 @@ class App extends Component {
       ? <RestaurantsList list={list} /> : <Gallery list={data.dishes} search={this.handleSearch} />;
     return (
       <div>
-        <Search update={this.updateLocation} />
+        <Search update={this.updateLocation} search={this.handleSearch} />
         {gallery}
       </div>
     );

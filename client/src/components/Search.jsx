@@ -6,7 +6,7 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      food: '',
+      term: '',
       location: 'San Francisco',
     };
 
@@ -22,8 +22,8 @@ class Search extends Component {
   }
 
   render() {
-    const { food, location } = this.state;
-    const { update } = this.props;
+    const { term, location } = this.state;
+    const { update, search } = this.props;
 
     return (
       <div className="search-container">
@@ -33,12 +33,12 @@ class Search extends Component {
             <div className="navbar-brand">Foodist</div>
             <form className="form-row">
               <div className="col">
-                <input type="text" className="form-control" name="food" placeholder="Food, Drinks, Restaurants, ...." value={food} onChange={this.handleChange} />
+                <input type="text" className="form-control" name="term" placeholder="Food, Drinks, Restaurants, ...." value={term} onChange={this.handleChange} />
               </div>
               <div className="col">
                 <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={(event) => { this.handleChange(event); update(location); }} />
               </div>
-              <button className="btn btn-outline-secondary btn-search" type="button" aria-label="search" alt="Icon made by Those Icons from www.flaticon.com" />
+              <button className="btn btn-outline-secondary btn-search" type="button" aria-label="search" alt="Icon made by Those Icons from www.flaticon.com" onClick={() => { search(this.state); }} />
             </form>
           </nav>
         </div>
@@ -49,6 +49,7 @@ class Search extends Component {
 
 Search.propTypes = {
   update: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
 };
 
 export default Search;
