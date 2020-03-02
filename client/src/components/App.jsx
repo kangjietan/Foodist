@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import searchYelp from '../../../api/searchYelp.js';
 import Search from './Search.jsx';
 import Gallery from './Gallery.jsx';
-// import Restaurants from './Restaurants.jsx'
+import RestaurantsList from './RestaurantsList.jsx'
 import data from '../../../data.js'
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
     searchYelp(query)
       .then((response) => {
         console.log(response);
-        this.setState({ list: response.data.businesses });
+        this.setState({ list: response.data.businesses, showRestaurants: true });
       })
       .catch((err) => {
         console.error(err);
@@ -44,7 +44,8 @@ class App extends Component {
 
   render() {
     const { list, showRestaurants } = this.state;
-    const gallery = showRestaurants ? <Restaurants list={list} /> : <Gallery list={data.dishes} search={this.handleSearch} />;
+    const gallery = showRestaurants
+      ? <RestaurantsList list={list} /> : <Gallery list={data.dishes} search={this.handleSearch} />;
     return (
       <div>
         <Search update={this.updateLocation} />
