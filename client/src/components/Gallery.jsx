@@ -10,18 +10,19 @@ class Gallery extends Component {
   }
 
   searchImage(event) {
+    console.log(event);
     const food = event.target.alt;
     const { search } = this.props;
 
-    search({ term: food, location: 'San Francisco ' });
+    // search({ term: food, location: 'San Francisco ' });
   }
 
   render() {
-    const { list } = this.props;
+    const { list, search } = this.props;
 
     return (
-      <div className="gallery-container container" role="list" onClick={this.searchImage}>
-        {list.map((entry) => <Dish entry={entry} key={entry.id} />)}
+      <div className="gallery-container container" role="list">
+        {list.map((entry, i) => <Dish entry={entry} key={i} search={search} />)}
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   constructor(props) {
@@ -22,19 +23,20 @@ class Search extends Component {
 
   render() {
     const { food, location } = this.state;
+    const { update } = this.props;
 
     return (
       <div className="search-container">
         <div className="container">
           <nav className="navbar navbar-light">
             <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com"/>
-            <a className="navbar-brand">Foodist</a>
+            <div className="navbar-brand">Foodist</div>
             <form className="form-row">
               <div className="col">
                 <input type="text" className="form-control" name="food" placeholder="Food...." value={food} onChange={this.handleChange} />
               </div>
               <div className="col">
-                <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={this.handleChange} />
+                <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={(event) => { this.handleChange(event); update(location); }} />
               </div>
               <button className="btn btn-outline-secondary btn-search" type="button">Search</button>
             </form>
@@ -44,5 +46,9 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  update: PropTypes.func.isRequired,
+};
 
 export default Search;

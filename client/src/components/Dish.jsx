@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Dish = ({ entry }) => (
-  <div className="dish-box">
+const Dish = ({ entry, search }) => (
+  <div className="dish-box" onClick={() => {search({ term: entry.dish_name }); }}>
     <div className="image-box">
       <img src={entry.image_url} alt={entry.dish_name} className="dish-image" />
     </div>
@@ -17,6 +17,7 @@ Dish.propTypes = {
     image_url: PropTypes.string,
     dish_name: PropTypes.string,
   }),
+  search: PropTypes.func.isRequired,
 };
 
 Dish.defaultProps = {
