@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Restaurant from './Restaurant.jsx';
 
 const RestaurantsList = ({ list }) => (
-  <div className="container">
+  <div className="restaurant-list-container container">
     {list.map((entry) => <Restaurant entry={entry} />)}
   </div>
 );

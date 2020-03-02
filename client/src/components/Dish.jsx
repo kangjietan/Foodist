@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Dish = ({ entry, search }) => (
-  <div className="dish-box" onClick={() => {search({ term: entry.dish_name }); }}>
-    <div className="image-box">
+  <div className="dish-box" onClick={() => { search({ term: entry.dish_name }); }}>
+    <div className="dish-image-box">
       <img src={entry.image_url} alt={entry.dish_name} className="dish-image" />
     </div>
-    <div className="name-box">
+    <div className="dish-name-box">
       {entry.dish_name}
     </div>
   </div>

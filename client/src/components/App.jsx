@@ -30,7 +30,6 @@ class App extends Component {
     query.location = location;
     searchYelp(query)
       .then((response) => {
-        console.log(response);
         this.setState({ list: response.data.businesses, showRestaurants: true });
       })
       .catch((err) => {
@@ -39,7 +38,7 @@ class App extends Component {
   }
 
   updateLocation(location) {
-    this.setState({ searchLocation: location }, () => { console.log('App', this.state.searchLocation); });
+    this.setState({ searchLocation: location });
   }
 
   render() {
