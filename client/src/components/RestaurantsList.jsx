@@ -4,7 +4,7 @@ import Restaurant from './Restaurant.jsx';
 
 const RestaurantsList = ({ list }) => (
   <div className="restaurant-list-container container">
-    {list.map((entry) => <Restaurant entry={entry} />)}
+    {list.map((entry, index) => <Restaurant entry={entry} key={index} />)}
   </div>
 );
 

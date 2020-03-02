@@ -11,6 +11,7 @@ class App extends Component {
 
     this.state = {
       list: [],
+      dishes: [],
       showRestaurants: false,
       searchLocation: 'San Francisco',
       loading: false,
@@ -18,12 +19,14 @@ class App extends Component {
 
     this.handleSearch = this.handleSearch.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
+    this.goBackHome = this.goBackHome.bind(this);
   }
 
   // componentDidMount() {
   //   this.handleSearch({ term: 'rice', location: 'San Francisco' });
   // }
 
+  // Search the yelp api with the given parameters
   handleSearch(params) {
     this.setState({ loading: true });
     const query = params;
@@ -32,6 +35,7 @@ class App extends Component {
     query.location = location;
     searchYelp(query)
       .then((response) => {
+        console.log(response);
         this.setState({ list: response.data.businesses, showRestaurants: true, loading: false });
       })
       .catch((err) => {
@@ -39,8 +43,14 @@ class App extends Component {
       });
   }
 
+  // Update location from search component
   updateLocation(location) {
     this.setState({ searchLocation: location });
+  }
+
+  // go back to dishes
+  goBackHome() {
+    this.setState({ showRestaurants: false, list: [] });
   }
 
   render() {
@@ -51,7 +61,7 @@ class App extends Component {
     if (loading) {
       return (
         <div>
-          <Search update={this.updateLocation} search={this.handleSearch} />
+          <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
           <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" alt="loading" />
         </div>
       );
@@ -59,7 +69,7 @@ class App extends Component {
 
     return (
       <div>
-        <Search update={this.updateLocation} search={this.handleSearch} />
+        <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
         {gallery}
       </div>
     );

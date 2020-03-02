@@ -43,7 +43,7 @@
 /* Gallery */
 
 .gallery-container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -51,29 +51,32 @@
 
 /* Dish */
 
-.dish-image-box {
-  width: 100%;
-  height: 75%;
-}
-
-.dish-image {
-  width: 100%;
-  height: 100%;
-}
-
 .dish-box {
   display: flex;
   flex-direction: column;
   width: 20%;
-  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  height: 15vw;
+  box-shadow: 0 0 0 1.5px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  border-radius: 4px;
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
 }
 
+.dish-image-box {
+  width: 100%;
+  height: 80%;
+}
+
+.dish-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
 .dish-name-box {
-  margin: 16px;
-  font-size: 1.25vw;
+  margin: 3%;
+  font-size: 1vw;
   font-weight: 500;
 }
 
@@ -88,7 +91,7 @@
 .restaurant-container {
   width: 45%;
   height: 10vw;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid #eeeeef;
   margin: 24px 0;
   margin-right: 10px;
@@ -114,6 +117,11 @@
   background-image: url("./search.svg");
   background-repeat: no-repeat;
   background-position: center;
-  width: 3vw;
-  background-size: 2vw;
+  width: 40px;
+  background-size: 20px;
+}
+
+.logo-box {
+  width: 35%;
+  cursor: pointer;
 }

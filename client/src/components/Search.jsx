@@ -23,14 +23,18 @@ class Search extends Component {
 
   render() {
     const { term, location } = this.state;
-    const { update, search } = this.props;
+    const { update, search, home } = this.props;
 
     return (
       <div className="search-container">
         <div className="container">
           <nav className="navbar navbar-light">
-            <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com" />
-            <div className="navbar-brand">Foodist</div>
+            <div className="navbar-brand">
+              <div className= "logo-box" onClick={home} role="button">
+                <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com" />
+                Foodist
+              </div>
+            </div>
             <form className="form-row">
               <div className="col">
                 <input type="text" className="form-control" name="term" placeholder="Food, Drinks, Restaurants, ...." value={term} onChange={this.handleChange} />

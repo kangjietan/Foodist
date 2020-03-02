@@ -10,7 +10,10 @@ const Restaurant = ({ entry }) => (
       <div className="restaurant-info">
         <div>{entry.name}</div>
         <div>{entry.location.address1}</div>
-        <div>{entry.phone}</div>
+        <div>{entry.display_phone}</div>
+        <div>{entry.review_count}</div>
+        <div>{entry.rating}</div>
+        <div>{entry.price}</div>
       </div>
     </div>
   </div>
@@ -20,6 +23,11 @@ Restaurant.propTypes = {
   entry: PropTypes.shape({
     name: PropTypes.string,
     image_url: PropTypes.string,
+    location: PropTypes.object,
+    display_phone: PropTypes.string,
+    review_count: PropTypes.number,
+    rating: PropTypes.number,
+    price: PropTypes.string,
   }),
 };
 
