@@ -25,15 +25,15 @@ module.exports = {
       image_url: 'https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg',
     },
     {
-      dish_name: 'Hot dog',
+      dish_name: 'Hot Dog',
       image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hotdog_-_Evan_Swigart.jpg/1200px-Hotdog_-_Evan_Swigart.jpg',
     },
     {
-      dish_name: 'Corn dog',
+      dish_name: 'Corn Dog',
       image_url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/CornDog.jpg',
     },
     {
-      dish_name: 'Korean corn dog',
+      dish_name: 'Korean Corn Dog',
       image_url: 'https://kirbiecravings.com/wp-content/uploads/2019/07/korean-hot-dogs-6.jpg',
     },
     {

@@ -71,6 +71,7 @@ class App extends Component {
       <div>
         <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
         {gallery}
+        <div>More coming soon!</div>
       </div>
     );
   }

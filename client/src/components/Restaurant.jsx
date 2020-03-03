@@ -1,6 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const topics = (list) => {
+  let categories = '';
+  list.forEach((entry) => { categories += `${entry.title}, `; });
+  categories = categories.substring(0, categories.length - 2);
+  return categories;
+};
+
+const methods = (list) => {
+  let categories = '';
+  list.forEach((entry) => { categories += `${entry}, `; });
+  categories = categories.substring(0, categories.length - 2);
+  return categories;
+};
+
 const Restaurant = ({ entry }) => (
   <div className="restaurant-container">
     <div className="restaurant-image-box">
@@ -14,7 +28,6 @@ const Restaurant = ({ entry }) => (
           <div>{entry.display_phone}</div>
         </div>
         <div className="misc-info">
-          {/* <div>{`${entry.rating}/5`}</div> */}
           <div className="rating">
             <div className="rating-upper" style={{ width: (entry.rating / 5) * 100 }}>
               <span>★</span>
@@ -35,6 +48,10 @@ const Restaurant = ({ entry }) => (
           <div>{entry.price}</div>
         </div>
       </div>
+      <div className="catergory-transactions-box">
+        <div>{methods(entry.transactions)}</div>
+        {topics(entry.categories)}
+      </div>
     </div>
   </div>
 );
@@ -48,6 +65,8 @@ Restaurant.propTypes = {
     review_count: PropTypes.number,
     rating: PropTypes.number,
     price: PropTypes.string,
+    categories: PropTypes.array,
+    transactions: PropTypes.array,
   }).isRequired,
 };
 
