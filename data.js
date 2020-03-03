@@ -232,8 +232,16 @@ module.exports = {
       dish_name: 'Udon',
       image_url: 'https://www.justonecookbook.com/wp-content/uploads/2015/11/Niku-Udon.jpg',
     },
-  ]
-}
+    {
+      dish_name: 'Lumpia',
+      image_url: 'https://rasamalaysia.com/wp-content/uploads/2019/03/lumpia-thumb.jpg',
+    },
+    {
+      dish_name: 'Seafood Boil',
+      image_url: 'https://www.dinneratthezoo.com/wp-content/uploads/2019/05/seafood-boil-5.jpg',
+    },
+  ],
+};
 
 // {
 //   dish_name: '',
