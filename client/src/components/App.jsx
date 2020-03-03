@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 import React, { Component } from 'react';
 import searchYelp from '../../../api/searchYelp.js';
+import axios from 'axios';
 import Search from './Search.jsx';
 import Gallery from './Gallery.jsx';
 import RestaurantsList from './RestaurantsList.jsx';
-import data from '../../../data.js';
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +25,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.handleSearch({ term: 'rice', location: 'San Francisco' });
     // Should be api call that retrieves data from database
-    this.setState({ dishes: data.dishes });
+    axios.get('http://localhost:3000/dishes')
+      .then((response) => {
+        this.setState({ dishes: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   // Search the yelp api with the given parameters
@@ -39,6 +44,16 @@ class App extends Component {
     const { searchLocation } = this.state;
     const location = params.location === undefined ? searchLocation : params.location;
     query.location = location;
+
+    // axios.get('http://localhost:3000/yelp/search', {
+    //   params: query,
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     searchYelp(query)
       .then((response) => {
