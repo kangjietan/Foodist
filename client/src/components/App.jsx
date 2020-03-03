@@ -73,13 +73,15 @@ class App extends Component {
       dishes,
     } = this.state;
 
+    const { updateLocation } = this;
+
     const gallery = showRestaurants
       ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={this.handleSearch} />;
 
     if (loading) {
       return (
         <div>
-          <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
+          <Search updateLoc={updateLocation} search={this.handleSearch} home={this.goBackHome} />
           {/* <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" alt="loading" className="loading-gif" /> */}
         </div>
       );
@@ -87,7 +89,7 @@ class App extends Component {
 
     return (
       <div>
-        <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
+        <Search updateLoc={updateLocation} search={this.handleSearch} home={this.goBackHome} />
         {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
         {gallery}
         <div>More coming soon!</div>
