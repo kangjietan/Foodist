@@ -14,7 +14,23 @@ const Restaurant = ({ entry }) => (
           <div>{entry.display_phone}</div>
         </div>
         <div className="misc-info">
-          <div>{`${entry.rating}/5`}</div>
+          {/* <div>{`${entry.rating}/5`}</div> */}
+          <div className="rating">
+            <div className="rating-upper" style={{ width: (entry.rating / 5) * 100 }}>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+            <div className="rating-lower">
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+          </div>
           <div>{`${entry.review_count} ratings`}</div>
           <div>{entry.price}</div>
         </div>
