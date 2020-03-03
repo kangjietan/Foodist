@@ -12,6 +12,7 @@ const methods = (list) => {
   let categories = '';
   list.forEach((entry) => { categories += `${entry}, `; });
   categories = categories.substring(0, categories.length - 2);
+  categories = categories.split('_').join(' ');
   return categories;
 };
 
@@ -49,8 +50,8 @@ const Restaurant = ({ entry }) => (
         </div>
       </div>
       <div className="catergory-transactions-box">
-        <div>{methods(entry.transactions)}</div>
         {topics(entry.categories)}
+        <div>{`Offers: ${methods(entry.transactions)}`}</div>
       </div>
     </div>
   </div>

@@ -12,8 +12,10 @@ class App extends Component {
 
     this.state = {
       list: [],
+      dishes: [],
       showRestaurants: false,
       searchLocation: 'San Francisco',
+      displayLocation: '',
       loading: false,
     };
 
@@ -22,21 +24,30 @@ class App extends Component {
     this.goBackHome = this.goBackHome.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.handleSearch({ term: 'rice', location: 'San Francisco' });
-  // }
+  componentDidMount() {
+    // this.handleSearch({ term: 'rice', location: 'San Francisco' });
+    // Should be api call that retrieves data from database
+    this.setState({ dishes: data.dishes });
+  }
 
   // Search the yelp api with the given parameters
   handleSearch(params) {
+    // Render empty gallery when retrieving data from api call
     this.setState({ loading: true });
+    // Params for api call, set location equal to location in search bar
     const query = params;
     const { searchLocation } = this.state;
     const location = params.location === undefined ? searchLocation : params.location;
     query.location = location;
+
     searchYelp(query)
       .then((response) => {
-        console.log(response);
-        this.setState({ list: response.data.businesses, showRestaurants: true, loading: false });
+        this.setState({
+          list: response.data.businesses,
+          showRestaurants: true,
+          loading: false,
+          displayLocation: searchLocation,
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -54,9 +65,16 @@ class App extends Component {
   }
 
   render() {
-    const { list, showRestaurants, loading } = this.state;
+    const {
+      list,
+      showRestaurants,
+      loading,
+      displayLocation,
+      dishes,
+    } = this.state;
+
     const gallery = showRestaurants
-      ? <RestaurantsList list={list} /> : <Gallery list={data.dishes} search={this.handleSearch} />;
+      ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={this.handleSearch} />;
 
     if (loading) {
       return (
@@ -69,7 +87,8 @@ class App extends Component {
 
     return (
       <div>
-        <Search update={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
+        <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} />
+        {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
         {gallery}
         <div>More coming soon!</div>
       </div>

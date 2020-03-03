@@ -17,13 +17,17 @@ class Search extends Component {
     const { target } = event;
     const { name } = target;
     const { value } = target;
+    const { updateLoc } = this.props;
 
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      const { location } = this.state;
+      updateLoc(location);
+    });
   }
 
   render() {
     const { term, location } = this.state;
-    const { update, search, home } = this.props;
+    const { search, home } = this.props;
 
     return (
       <div className="search-container">
@@ -40,7 +44,7 @@ class Search extends Component {
                 <input type="text" className="form-control" name="term" placeholder="Food, Drinks, Restaurants, ...." value={term} onChange={this.handleChange} />
               </div>
               <div className="col">
-                <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={(event) => { this.handleChange(event); update(location); }} />
+                <input type="text" className="form-control" name="location" placeholder="Location...." value={location} onChange={(event) => { this.handleChange(event); }} />
               </div>
               <button className="btn btn-outline-secondary btn-search" type="button" aria-label="search" alt="Icon made by Those Icons from www.flaticon.com" onClick={() => { search(this.state); }} />
             </form>
@@ -52,7 +56,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  update: PropTypes.func.isRequired,
+  updateLoc: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
   home: PropTypes.func.isRequired,
 };
