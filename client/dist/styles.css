@@ -23,6 +23,7 @@
 
 .navbar-brand {
   flex-grow: 2;
+  display: flex;
 }
 
 .form-control {
@@ -36,6 +37,16 @@
   margin-right: 5px;
 }
 
+.logo-box {
+  width: auto;
+  cursor: pointer;
+}
+
+.random-box {
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
 
 /* Gallery */
 
@@ -164,11 +175,6 @@
   background-position: center;
   width: 40px;
   background-size: 20px;
-}
-
-.logo-box {
-  width: 35%;
-  cursor: pointer;
 }
 
 /* Gif */

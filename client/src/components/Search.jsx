@@ -27,7 +27,7 @@ class Search extends Component {
 
   render() {
     const { term, location } = this.state;
-    const { search, home } = this.props;
+    const { search, home, random } = this.props;
 
     return (
       <div className="search-container">
@@ -36,7 +36,7 @@ class Search extends Component {
             <div className="navbar-brand">
               <div className="logo-box" onClick={home} role="presentation">
                 <img src="food.svg" className="nav-icon" alt="Icon made by Vectors Market from www.flaticon.com" />
-                Foodist
+                <span>Foodist</span>
               </div>
             </div>
             <form className="form-row">
@@ -48,6 +48,9 @@ class Search extends Component {
               </div>
               <button className="btn btn-outline-secondary btn-search" type="button" aria-label="search" alt="Icon made by Those Icons from www.flaticon.com" onClick={() => { search(this.state); }} />
             </form>
+            <div className="random-box" onClick={random} role="presentation">
+              <span className="random-title">Not Sure Where To Eat?</span>
+            </div>
           </nav>
         </div>
       </div>
@@ -59,6 +62,7 @@ Search.propTypes = {
   updateLoc: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
   home: PropTypes.func.isRequired,
+  random: PropTypes.func.isRequired,
 };
 
 export default Search;
