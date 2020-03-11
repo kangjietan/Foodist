@@ -25,13 +25,5 @@ const searchYelp = (params) => {
   });
 };
 
-searchYelp({ term: 'Rice', location: 'San Francisco' })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
 module.exports = searchYelp;
 // export default searchYelp;

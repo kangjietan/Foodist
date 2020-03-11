@@ -97,36 +97,19 @@ class App extends Component {
       showRandom,
     } = this.state;
 
-    const {
-      updateLocation,
-      handleSearch,
-      goBackHome,
-      goRandomPage,
-    } = this;
-
-    const gallery = showRestaurants
-      ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={handleSearch} />;
+    let gallery = showRestaurants ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={this.handleSearch} />;
 
     if (loading) {
-      return (
-        <div>
-          <Search updateLoc={updateLocation} search={this.handleSearch} home={goBackHome} random={goRandomPage} />
-        </div>
-      );
+      gallery = null;
     }
 
     if (showRandom) {
-      return (
-        <div>
-          <Search updateLoc={updateLocation} search={this.handleSearch} home={goBackHome} random={goRandomPage} />
-          <RandomRestaurant />
-        </div>
-      );
+      gallery = <RandomRestaurant />;
     }
 
     return (
       <div>
-        <Search updateLoc={updateLocation} search={this.handleSearch} home={this.goBackHome} random={goRandomPage} />
+        <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
         {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
         {gallery}
         <div>More coming soon!</div>
