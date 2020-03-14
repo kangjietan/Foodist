@@ -1,8 +1,8 @@
 import React from 'react';
 
-const RandomRestaurant = () => (
-  <div className="container">
-    Randomizer
+const RandomRestaurant = ({ restaurant }) => (
+  <div className="container random-container">
+    <div>{restaurant.location.address1}</div>
   </div>
 );
 

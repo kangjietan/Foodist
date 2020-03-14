@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Format the food topics
 const topics = (list) => {
   let categories = '';
   list.forEach((entry) => { categories += `${entry.title}, `; });
@@ -8,6 +9,7 @@ const topics = (list) => {
   return categories;
 };
 
+// Format the transaction types
 const methods = (list) => {
   let categories = '';
   list.forEach((entry) => { categories += `${entry}, `; });
@@ -30,7 +32,7 @@ const Restaurant = ({ entry }) => (
         </div>
         <div className="misc-info">
           <div className="rating">
-            <div className="rating-upper" style={{ width: (entry.rating / 5) * 100 }}>
+            <div className="rating-upper" style={{ width: `${(entry.rating / 5) * 100}%` }}>
               <span>★</span>
               <span>★</span>
               <span>★</span>

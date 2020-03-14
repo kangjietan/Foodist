@@ -14,6 +14,8 @@ class App extends Component {
     this.state = {
       list: [],
       dishes: [],
+      randomList: [],
+      randomRestaurant: {},
       searchLocation: 'San Francisco',
       displayLocation: '',
       showRestaurants: false,
@@ -83,8 +85,18 @@ class App extends Component {
     this.setState({ showRestaurants: false, showRandom: false, list: [] });
   }
 
+  // Choose random restaurant
   goRandomPage() {
-    this.setState({ showRandom: true, list: [] });
+    const { searchLocation } = this.state;
+    const params = { location: searchLocation };
+    searchYelp(params)
+      .then((response) => {
+        const restaurants = response.data.businesses;
+        this.setState({ showRandom: true, randomList: restaurants, randomRestaurant: restaurants[0], list: [] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -95,6 +107,8 @@ class App extends Component {
       displayLocation,
       dishes,
       showRandom,
+      randomList,
+      randomRestaurant,
     } = this.state;
 
     let gallery = showRestaurants ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={this.handleSearch} />;
@@ -104,7 +118,7 @@ class App extends Component {
     }
 
     if (showRandom) {
-      gallery = <RandomRestaurant />;
+      gallery = <RandomRestaurant list={randomList} restaurant={randomRestaurant} />;
     }
 
     return (
