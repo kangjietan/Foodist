@@ -44,7 +44,7 @@ class App extends Component {
   // Search the yelp api with the given parameters
   handleSearch(params) {
     // Render empty gallery when retrieving data from api call
-    this.setState({ loading: true }, () => { setTimeout(() => { this.setState({ loading: false }); }, 2000); });
+    this.setState({ loading: true });
     // Params for api call, set location equal to location in search bar
     const query = params;
     const { searchLocation } = this.state;
