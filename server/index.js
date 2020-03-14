@@ -5,7 +5,7 @@ const express = require('express');
 // Import the path module from node to create absolute file paths for express static
 const path = require('path');
 // Import controllers
-const Dish = require('../database/controllers/dish.js');
+// const Dish = require('../database/controllers/dish.js');
 // Import the yelp search helper function
 const searchYelp = require('../api/searchYelp.js');
 

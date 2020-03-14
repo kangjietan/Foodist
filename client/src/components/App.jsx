@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React, { Component } from 'react';
-import searchYelp from '../../../api/searchYelp.js';
+import axios from 'axios';
 import Search from './Search.jsx';
 import Gallery from './Gallery.jsx';
 import RestaurantsList from './RestaurantsList.jsx';
@@ -51,18 +51,11 @@ class App extends Component {
     const location = params.location === undefined ? searchLocation : params.location;
     query.location = location;
 
-    // axios.get('http://localhost:3000/yelp/search', {
-    //   params: query,
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    searchYelp(query)
+    axios.get('http://localhost:3000/yelp/search', {
+      params: query,
+    })
       .then((response) => {
+        console.log(response);
         this.setState({
           list: response.data.businesses,
           showRestaurants: true,
@@ -71,7 +64,7 @@ class App extends Component {
         });
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err);
       });
   }
 
@@ -89,13 +82,16 @@ class App extends Component {
   goRandomPage() {
     const { searchLocation } = this.state;
     const params = { location: searchLocation };
-    searchYelp(params)
+
+    axios.get('http://localhost:3000/yelp/search', {
+      params,
+    })
       .then((response) => {
         const restaurants = response.data.businesses;
         this.setState({ showRandom: true, randomList: restaurants, randomRestaurant: restaurants[0], list: [] });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       });
   }
 

@@ -1,6 +1,5 @@
 # Foodist
-Pick a dish and see which restaurants will serve that. If nothing you like is listed, you can also search!
-Not sure where to eat, have a place chosen for you!
+Pick a dish and see which restaurants will serve that. If nothing you like is listed, you can also search! Not sure where to eat, have a place chosen for you!
 
 ## Getting Started
 

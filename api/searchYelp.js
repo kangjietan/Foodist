@@ -9,7 +9,7 @@ const searchYelp = (params) => {
 
   const options = {
     method: 'GET',
-    headers: { Authorization: YELP_API_KEY },
+    headers: { Authorization: YELP_API_KEY, 'X-Requested-With': 'XMLHttpRequest' },
     params,
     url: `${cors}/${url}`,
   };
