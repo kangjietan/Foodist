@@ -55,7 +55,6 @@ class App extends Component {
       params: query,
     })
       .then((response) => {
-        console.log(response);
         this.setState({
           list: response.data.businesses,
           showRestaurants: true,

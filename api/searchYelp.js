@@ -1,5 +1,3 @@
-// import axios from 'axios';
-// import YELP_API_KEY from '../config/config.js';
 const axios = require('axios');
 const YELP_API_KEY = require('../config/config.js');
 
@@ -26,4 +24,3 @@ const searchYelp = (params) => {
 };
 
 module.exports = searchYelp;
-// export default searchYelp;
