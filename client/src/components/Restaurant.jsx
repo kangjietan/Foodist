@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Rating from './Rating.jsx';
 
 // Format the food topics
 const topics = (list) => {
@@ -31,22 +32,7 @@ const Restaurant = ({ entry }) => (
           <div>{entry.display_phone}</div>
         </div>
         <div className="misc-info">
-          <div className="rating">
-            <div className="rating-upper" style={{ width: `${(entry.rating / 5) * 100}%` }}>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-            </div>
-            <div className="rating-lower">
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-            </div>
-          </div>
+          <Rating rating={entry.rating} />
           <div>{`${entry.review_count} ratings`}</div>
           <div>{entry.price}</div>
         </div>

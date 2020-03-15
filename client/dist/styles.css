@@ -219,6 +219,7 @@
 
 .random-container {
   display: flex;
+  font-family: 'Roboto';
 }
 
 .random-restaurant-box {
@@ -239,12 +240,12 @@
   height: 100%;
   width: 100%;
   max-height: 55%;
-  /* margin: auto; */
 }
 
 .random-restaurant-image {
   height: 100%;
   width: 100%;
+  border-radius: 4px;
 }
 
 .map-container {
