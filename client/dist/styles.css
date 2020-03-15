@@ -183,6 +183,10 @@
 .btn-generate-box {
   margin: auto;
   width: 25%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 37.5%;
 }
 
 .btn-generate {
@@ -229,6 +233,7 @@
   border-radius: 4px;
   margin-right: 10px;
   text-align: center;
+  position: relative;
 }
 
 .random-restaurant-name {
