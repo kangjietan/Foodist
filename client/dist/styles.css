@@ -139,7 +139,7 @@
 
 .restaurant-info-box {
   width: 100%;
-  font-size: 0.75vmax;
+  font-size: 1vmax;
 }
 
 .restaurant-info {
@@ -160,6 +160,7 @@
   margin-right: 5px;
   text-align: right;
   color: #888888;
+  font-size: 0.75vmax;
 }
 
 .catergory-transactions-box {
@@ -179,7 +180,16 @@
   background-size: 20px;
 }
 
-/* Stars  */
+.btn-generate-box {
+  margin: auto;
+  width: 25%;
+}
+
+.btn-generate {
+  width: 100%;
+}
+
+/* Stars */
 
 .rating {
   display: inline-block;
@@ -203,4 +213,41 @@
 .rating-lower {
   display: flex;
   z-index: 0;
+}
+
+/* Randomizer */
+
+.random-container {
+  display: flex;
+}
+
+.random-restaurant-box {
+  width: 40%;
+  height: 60vh;
+  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  border-radius: 4px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.random-restaurant-name {
+  font-weight: 600;
+  font-size: 1.5vmax;
+}
+
+.random-image-box {
+  height: 100%;
+  width: 100%;
+  max-height: 55%;
+  /* margin: auto; */
+}
+
+.random-restaurant-image {
+  height: 100%;
+  width: 100%;
+}
+
+.map-container {
+  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  width: 60%;
 }

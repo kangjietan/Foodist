@@ -27,6 +27,12 @@ class App extends Component {
     this.updateLocation = this.updateLocation.bind(this);
     this.goBackHome = this.goBackHome.bind(this);
     this.goRandomPage = this.goRandomPage.bind(this);
+    this.rollNewRestaurant = this.rollNewRestaurant.bind(this);
+    this.randomInt = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
   }
 
   componentDidMount() {
@@ -58,6 +64,7 @@ class App extends Component {
         this.setState({
           list: response.data.businesses,
           showRestaurants: true,
+          showRandom: false,
           loading: false,
           displayLocation: searchLocation,
         });
@@ -80,18 +87,29 @@ class App extends Component {
   // Choose random restaurant
   goRandomPage() {
     const { searchLocation } = this.state;
-    const params = { location: searchLocation };
+    const params = { location: searchLocation, term: 'food', limit: 50 };
+    this.setState({ loading: true });
 
     axios.get('http://localhost:3000/yelp/search', {
       params,
     })
       .then((response) => {
+        console.log(response);
         const restaurants = response.data.businesses;
-        this.setState({ showRandom: true, randomList: restaurants, randomRestaurant: restaurants[0], list: [] });
+        const idx = this.randomInt(0, restaurants.length - 1);
+        this.setState({ loading: false, showRestaurants: false, showRandom: true, randomList: restaurants, randomRestaurant: restaurants[idx], list: [] });
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  // Click button to roll a new restaurant
+  rollNewRestaurant() {
+    const { randomList } = this.state;
+    const idx = this.randomInt(0, randomList.length - 1);
+
+    this.setState({ randomRestaurant: randomList[idx] });
   }
 
   render() {
@@ -113,7 +131,7 @@ class App extends Component {
     }
 
     if (showRandom) {
-      gallery = <RandomRestaurant list={randomList} restaurant={randomRestaurant} />;
+      gallery = <RandomRestaurant list={randomList} restaurant={randomRestaurant} roll={this.rollNewRestaurant} />;
     }
 
     return (
