@@ -19,7 +19,7 @@ const methods = (list) => {
   return categories;
 };
 
-const Restaurant = ({ entry }) => (
+const Restaurant = ({ entry, idx }) => (
   <div className="restaurant-container">
     <div className="restaurant-image-box">
       <img src={entry.image_url} alt="" className="restaurant-image" />
@@ -27,7 +27,7 @@ const Restaurant = ({ entry }) => (
     <div className="restaurant-info-box">
       <div className="restaurant-info">
         <div className="main-info">
-          <div className="main-name">{entry.name}</div>
+          <div className="main-name">{`${idx}. ${entry.name}`}</div>
           <div>{entry.location.address1}</div>
           <div>{entry.display_phone}</div>
         </div>

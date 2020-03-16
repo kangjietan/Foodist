@@ -162,7 +162,7 @@ class App extends Component {
         {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
         {/* {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" onClick={this.rollByUserLocation}>Search by your location</button></div> : null} */}
         {gallery}
-        <div style={{textAlign: 'center'}}>More coming soon!</div>
+        <div style={{ textAlign: 'center' }}>More coming soon!</div>
       </div>
     );
   }

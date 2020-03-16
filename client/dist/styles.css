@@ -48,7 +48,7 @@
   cursor: pointer;
 }
 
-/* Gallery */
+/* Gallery Page */
 
 .gallery-container {
   width: 100%;
@@ -95,7 +95,13 @@
   font-weight: 575;
 }
 
-/* Restaurant */
+/* Restaurants Page */
+
+.restaurants-container {
+  margin-left: 0;
+  display: flex;
+  width: 100%;
+}
 
 .restaurant-list-container {
   display: flex;
@@ -103,10 +109,11 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   font-family: 'Roboto';
+  width: 60%;
 }
 
 .restaurant-container {
-  width: 49%;
+  width: 95%;
   height: 20vh;
   border-radius: 5px;
   border: 1px solid #eeeeef;
@@ -169,6 +176,13 @@
   color: #888888;
 }
 
+/* Restaurants Map */
+.restaurants-map-box {
+  position: sticky;
+  top: 0;
+  margin-top: 24px;
+}
+
 /* Button */
 
 .btn-search {
@@ -219,7 +233,7 @@
   z-index: 0;
 }
 
-/* Randomizer */
+/* Randomizer Page */
 
 .random-container {
   display: flex;
@@ -265,12 +279,10 @@
   left: 50%;
   width: 18px;
   height: 18px;
-  background-color: #000;
   border: 2px solid #fff;
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);
-  &:hover {
-    z-index: 1;
-  }
+  text-align: center;
+  color: white;
 }
