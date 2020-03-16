@@ -4,3 +4,4 @@ node_modules/
 .DS_Store
 foodimgs/
 client/dist/bundle.js
+.env

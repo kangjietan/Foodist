@@ -28,11 +28,7 @@ class App extends Component {
     this.goBackHome = this.goBackHome.bind(this);
     this.goRandomPage = this.goRandomPage.bind(this);
     this.rollNewRestaurant = this.rollNewRestaurant.bind(this);
-    this.randomInt = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
+    this.randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   componentDidMount() {
@@ -138,8 +134,9 @@ class App extends Component {
       <div>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
         {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
+        {showRandom ? <div className="container" style={{textAlign: 'center'}}>Search by your location | Search for certain food or by certain location</div> : null}
         {gallery}
-        <div>More coming soon!</div>
+        <div style={{textAlign: 'center'}}>More coming soon!</div>
       </div>
     );
   }

@@ -1,5 +1,7 @@
+require('dotenv').config();
 const axios = require('axios');
-const YELP_API_KEY = require('../config/config.js');
+
+const { YELP_API_KEY } = process.env;
 
 const searchYelp = (params) => {
   const cors = 'https://cors-anywhere.herokuapp.com';

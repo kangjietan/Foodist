@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -w",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon ./server/index.js",
+    "react-prod": "webpack -p",
+    "start-prod": "node ./server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +30,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "google-map-react": "^1.1.6",
     "mongoose": "^5.9.2",
     "nodemon": "^1.19.2",
     "prop-types": "^15.7.2",

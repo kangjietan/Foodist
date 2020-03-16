@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from './Rating.jsx';
+import Map from './Map.jsx';
 
 const RandomRestaurant = ({ restaurant, roll }) => (
   <div className="container random-container">
@@ -31,7 +32,7 @@ const RandomRestaurant = ({ restaurant, roll }) => (
       </div>
     </div>
     <div className="map-container">
-      Google Maps Will Go Here
+      <Map />
     </div>
   </div>
 );
