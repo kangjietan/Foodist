@@ -38,5 +38,19 @@ app.get('/yelp/search', (req, res) => {
     });
 });
 
+// Need HTTPS
+// Search the yelp api by location
+// app.get('/yelp/search/coordinates', (req, res) => {
+//   const params = req.query;
+//   searchYelp(params)
+//     .then((response) => {
+//       res.json(response.data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.json(err);
+//     });
+// });
+
 // Start the server on the provided port
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

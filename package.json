@@ -8,7 +8,9 @@
     "react-dev": "webpack -w",
     "start": "nodemon ./server/index.js",
     "react-prod": "webpack -p",
-    "start-prod": "node ./server/index.js"
+    "start-prod": "node ./server/index.js",
+    "seed": "node database/controllers/seed.js",
+    "seedStart": "npm run seed & npm run start-prod"
   },
   "keywords": [],
   "author": "",

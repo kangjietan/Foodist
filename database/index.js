@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/mvp',
+// localhost || database for docker
+const url = 'localhost';
+
+mongoose.connect(`mongodb://${url}/mvp`,
   { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
