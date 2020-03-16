@@ -92,7 +92,7 @@
 .dish-name-box {
   margin: 3%;
   font-size: 1vw;
-  font-weight: 575;
+  font-weight: 600;
 }
 
 /* Restaurants Page */
@@ -179,7 +179,7 @@
 /* Restaurants Map */
 .restaurants-map-box {
   position: sticky;
-  top: 0;
+  top: 11vh;
   margin-top: 24px;
 }
 
@@ -277,8 +277,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #fff;
   border-radius: 100%;
   user-select: none;

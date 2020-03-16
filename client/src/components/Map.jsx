@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Marker from './Marker.jsx';
 
 const createMarkers = (restaurants) => {
-  const markers = restaurants.map((restaurant, idx) => <Marker lat={restaurant.coordinates.latitude} lng={restaurant.coordinates.longitude} idx={idx} color="blue" />);
+  const markers = restaurants.map((restaurant, idx) => <Marker lat={restaurant.coordinates.latitude} lng={restaurant.coordinates.longitude} idx={idx + 1} color="blue" />);
   return markers;
 };
 
