@@ -32,7 +32,7 @@ const RandomRestaurant = ({ restaurant, roll }) => (
       </div>
     </div>
     <div className="map-container">
-      <Map />
+      <Map restaurant={restaurant} />
     </div>
   </div>
 );
