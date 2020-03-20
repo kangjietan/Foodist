@@ -54,6 +54,7 @@ class App extends Component {
     const { searchLocation, url } = this.state;
     const location = params.location === undefined ? searchLocation : params.location;
     query.location = location;
+    query.limit = 50;
 
     axios.get(`${url}/yelp/search`, {
       params: query,

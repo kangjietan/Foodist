@@ -1,6 +1,8 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from './Rating.jsx';
+import Helpers from './helpers.jsx';
 
 // Format the food topics
 const topics = (list) => {
@@ -20,7 +22,7 @@ const methods = (list) => {
 };
 
 const Restaurant = ({ entry, idx }) => (
-  <div className="restaurant-container">
+  <div className="restaurant-container" onMouseEnter={() => { Helpers.changeMarkerColor(idx); }} onMouseLeave={() => { Helpers.changeMarkerColorDefault(idx); }}>
     <div className="restaurant-image-box">
       <img src={entry.image_url} alt="" className="restaurant-image" />
     </div>

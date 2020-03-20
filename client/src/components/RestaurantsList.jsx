@@ -9,7 +9,7 @@ const RestaurantsList = ({ list }) => (
     <div className="restaurant-list-container">
       {list.map((entry, idx) => <Restaurant entry={entry} key={entry.id} idx={idx + 1} />)}
     </div>
-    <div className="restaurants-map-box" style={{ height: '60vh', width: '100%' }}>
+    <div className="restaurants-map-box" style={{ height: '80vh', width: '100%' }}>
       <Map restaurants={list} />
     </div>
   </div>

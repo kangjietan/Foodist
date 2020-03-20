@@ -14,4 +14,14 @@ export default class Helpers {
       }
     });
   }
+
+  static changeMarkerColor(idx) {
+    const marker = document.getElementsByClassName(`restaurant${idx}`);
+    marker[0].style.backgroundColor = 'red';
+  }
+
+  static changeMarkerColorDefault(idx) {
+    const marker = document.getElementsByClassName(`restaurant${idx}`);
+    marker[0].style.backgroundColor = 'blue';
+  }
 }
