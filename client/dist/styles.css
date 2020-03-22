@@ -101,6 +101,7 @@
   margin-left: 0;
   display: flex;
   width: 100%;
+  margin-top: 24px;
 }
 
 .restaurant-list-container {
@@ -285,4 +286,19 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
+}
+
+/* Filtering & Sorting */
+
+.filter-sort-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-box {
+  margin-left: 20px;
+}
+
+.sort-box {
+  margin-left: 10px;
 }

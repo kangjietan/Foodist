@@ -5,6 +5,7 @@ import Search from './Search.jsx';
 import Gallery from './Gallery.jsx';
 import RestaurantsList from './RestaurantsList.jsx';
 import RandomRestaurant from './RandomRestaurant.jsx';
+import FilterSort from './FilterSort.jsx';
 import Helpers from './helpers.jsx';
 import data from '../../../data.js';
 
@@ -13,6 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      originalList: [],
       list: [],
       dishes: [],
       randomList: [],
@@ -30,6 +32,7 @@ class App extends Component {
     this.goBackHome = this.goBackHome.bind(this);
     this.goRandomPage = this.goRandomPage.bind(this);
     this.rollNewRestaurant = this.rollNewRestaurant.bind(this);
+    this.handleFilterSort = this.handleFilterSort.bind(this);
     // this.rollByUserLocation = this.rollByUserLocation.bind(this);
   }
 
@@ -60,8 +63,10 @@ class App extends Component {
       params: query,
     })
       .then((response) => {
+        const { businesses } = response.data;
         this.setState({
-          list: response.data.businesses,
+          originalList: businesses,
+          list: businesses,
           showRestaurants: true,
           showRandom: false,
           loading: false,
@@ -93,10 +98,16 @@ class App extends Component {
       params,
     })
       .then((response) => {
-        console.log(response);
         const restaurants = response.data.businesses;
         const idx = Helpers.randomInt(0, restaurants.length - 1);
-        this.setState({ loading: false, showRestaurants: false, showRandom: true, randomList: restaurants, randomRestaurant: restaurants[idx], list: [] });
+        this.setState({
+          loading: false,
+          showRestaurants: false,
+          showRandom: true,
+          randomList: restaurants,
+          randomRestaurant: restaurants[idx],
+          list: [],
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -109,6 +120,55 @@ class App extends Component {
     const idx = Helpers.randomInt(0, randomList.length - 1);
 
     this.setState({ randomRestaurant: randomList[idx] });
+  }
+
+  handleFilterSort(event) {
+    const { target } = event;
+    const { name, value } = target;
+
+    // Filtering
+    if (name === 'filter') {
+      const { originalList } = this.state;
+      let filteredList = originalList.slice();
+      if (value === 'DEFAULT') {
+        this.setState({ list: filteredList });
+      } else if (value.indexOf('$') >= 0) {
+        filteredList = filteredList.filter((restaurant) => {
+          const price = restaurant.price === undefined ? 0 : restaurant.price.length;
+          return price === value.length;
+        });
+        this.setState({ list: filteredList });
+      } else {
+        const rating = Number(value);
+        filteredList = filteredList.filter((restaurant) => restaurant.rating <= rating);
+        this.setState({ list: filteredList });
+      }
+    // Sorting
+    } else if (name === 'sort') {
+      const { originalList } = this.state;
+      // Don't mutate original list
+      let sortedList = originalList.slice();
+      // User selected recommended so default list
+      if (value === 'recommended') {
+        this.setState({ list: sortedList });
+      // User selected rating so sort by rating descending order
+      } else if (value === 'rating') {
+        sortedList = sortedList.sort((a, b) => b.rating - a.rating);
+        this.setState({ list: sortedList });
+      // User selected rating so sort by rating ascending order
+      } else if (value === 'pricing') {
+        sortedList = sortedList.sort((a, b) => {
+          const price1 = a.price === undefined ? 0 : a.price.length;
+          const price2 = b.price === undefined ? 0 : b.price.length;
+          return price1 - price2;
+        });
+        this.setState({ list: sortedList });
+      // User selected rating so sort by rating descending order
+      } else if (value === 'reviews') {
+        sortedList = sortedList.sort((a, b) => b.review_count - a.review_count);
+        this.setState({ list: sortedList });
+      }
+    }
   }
 
   // Need HTTPS to test
@@ -160,10 +220,9 @@ class App extends Component {
     return (
       <div>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
-        {showRestaurants ? <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2> : null}
+        {showRestaurants ? <FilterSort displayLocation={displayLocation} filterSort={this.handleFilterSort} /> : null}
         {/* {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" onClick={this.rollByUserLocation}>Search by your location</button></div> : null} */}
         {gallery}
-        <div style={{ textAlign: 'center' }}>More coming soon!</div>
       </div>
     );
   }
