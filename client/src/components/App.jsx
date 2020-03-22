@@ -140,17 +140,17 @@ class App extends Component {
         this.setState({ list: filteredList });
       } else {
         const rating = Number(value);
-        filteredList = filteredList.filter((restaurant) => restaurant.rating <= rating);
+        filteredList = filteredList.filter((restaurant) => restaurant.rating >= rating);
         this.setState({ list: filteredList });
       }
     // Sorting
     } else if (name === 'sort') {
-      const { originalList } = this.state;
+      const { list, originalList } = this.state;
       // Don't mutate original list
-      let sortedList = originalList.slice();
+      let sortedList = list.slice();
       // User selected recommended so default list
       if (value === 'recommended') {
-        this.setState({ list: sortedList });
+        this.setState({ list: originalList });
       // User selected rating so sort by rating descending order
       } else if (value === 'rating') {
         sortedList = sortedList.sort((a, b) => b.rating - a.rating);
