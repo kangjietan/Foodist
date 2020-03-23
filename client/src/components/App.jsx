@@ -33,7 +33,7 @@ class App extends Component {
     this.goRandomPage = this.goRandomPage.bind(this);
     this.rollNewRestaurant = this.rollNewRestaurant.bind(this);
     this.handleFilterSort = this.handleFilterSort.bind(this);
-    // this.rollByUserLocation = this.rollByUserLocation.bind(this);
+    this.rollByUserLocation = this.rollByUserLocation.bind(this);
   }
 
   componentDidMount() {
@@ -172,28 +172,28 @@ class App extends Component {
   }
 
   // Need HTTPS to test
-  // rollByUserLocation() {
-  //   const { searchLocation, url } = this.state;
-  //   Helpers.getUserLocation()
-  //     .then((coords) => {
-  //       console.log(coords);
-  //       const params = { latitude: coords[0], longitude: coords[1], location: searchLocation, term: 'food', limit: 50 };
-  //       axios.get(`${url}/yelp/search/coordinates`, {
-  //         params,
-  //       })
-  //         .then((response) => {
-  //           const restaurants = response.data.businesses;
-  //           const idx = Helpers.randomInt(0, restaurants.length - 1);
-  //           this.setState({ loading: false, showRestaurants: false, showRandom: true, randomList: restaurants, randomRestaurant: restaurants[idx], list: [] });
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+  rollByUserLocation() {
+    const { searchLocation, url } = this.state;
+    Helpers.getUserLocation()
+      .then((coords) => {
+        console.log(coords);
+        const params = { latitude: coords[0], longitude: coords[1], location: searchLocation, term: 'food', limit: 50 };
+        axios.get(`${url}/yelp/search/coordinates`, {
+          params,
+        })
+          .then((response) => {
+            const restaurants = response.data.businesses;
+            const idx = Helpers.randomInt(0, restaurants.length - 1);
+            this.setState({ loading: false, showRestaurants: false, showRandom: true, randomList: restaurants, randomRestaurant: restaurants[idx], list: [] });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
     const {
@@ -221,7 +221,7 @@ class App extends Component {
       <div>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
         {showRestaurants ? <FilterSort displayLocation={displayLocation} filterSort={this.handleFilterSort} /> : null}
-        {/* {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" onClick={this.rollByUserLocation}>Search by your location</button></div> : null} */}
+        {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" onClick={this.rollByUserLocation}>Search by your location</button></div> : null}
         {gallery}
       </div>
     );
