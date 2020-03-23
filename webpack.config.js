@@ -1,8 +1,8 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 const path = require('path');
 
-const dotenv = require('dotenv').config({ path: `${__dirname}/.env` });
+// const dotenv = require('dotenv').config({ path: `${__dirname}/.env` });
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
@@ -25,10 +25,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.YELP_API_KEY': JSON.stringify(dotenv.parsed.YELP_API_KEY),
-      'process.env.GOOGLE_API_KEY': JSON.stringify(dotenv.parsed.GOOGLE_API_KEY),
-    }),
-  ],
+  // plugins: [
+  //   new webpack.DefinePlugin({
+  //     'process.env.YELP_API_KEY': JSON.stringify(dotenv.parsed.YELP_API_KEY),
+  //     'process.env.GOOGLE_API_KEY': JSON.stringify(dotenv.parsed.GOOGLE_API_KEY),
+  //   }),
+  // ],
 };

@@ -1,4 +1,3 @@
-require('dotenv').config();
 const axios = require('axios');
 
 const { YELP_API_KEY } = process.env;
