@@ -3,6 +3,7 @@
 const path = require('path');
 
 // const dotenv = require('dotenv').config({ path: `${__dirname}/.env` });
+const Dotenv = require('dotenv-webpack');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
@@ -25,6 +26,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new Dotenv(),
+  ],
   // plugins: [
   //   new webpack.DefinePlugin({
   //     'process.env.YELP_API_KEY': JSON.stringify(dotenv.parsed.YELP_API_KEY),

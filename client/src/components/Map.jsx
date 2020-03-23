@@ -4,6 +4,8 @@ import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 import Marker from './Marker.jsx';
 
+const { GOOGLE_API_KEY } = process.env;
+
 const createMarkers = (restaurants) => {
   const markers = restaurants.map((restaurant, idx) => <Marker lat={restaurant.coordinates.latitude} lng={restaurant.coordinates.longitude} idx={idx + 1} color="blue" />);
   return markers;
@@ -11,7 +13,7 @@ const createMarkers = (restaurants) => {
 
 const Map = ({ restaurant, restaurants }) => (
   <GoogleMapReact
-    bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
+    bootstrapURLKeys={{ key: GOOGLE_API_KEY }}
     defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
     defaultZoom={11}
   >
