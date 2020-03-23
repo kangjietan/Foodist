@@ -9,7 +9,7 @@ const searchYelp = require('../api/searchYelp.js');
 // Instantiate the express server
 const app = express();
 // Set a constant for the port that our express server will listen on
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // Serve static files. Any requests for specific files will be served if they exist in the provided folder
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
