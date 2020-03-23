@@ -140,7 +140,7 @@ class App extends Component {
         this.setState({ list: filteredList });
       } else {
         const rating = Number(value);
-        filteredList = filteredList.filter((restaurant) => restaurant.rating >= rating);
+        filteredList = filteredList.filter((restaurant) => restaurant.rating <= rating);
         this.setState({ list: filteredList });
       }
     // Sorting
@@ -150,7 +150,7 @@ class App extends Component {
       let sortedList = list.slice();
       // User selected recommended so default list
       if (value === 'recommended') {
-        this.setState({ list: originalList });
+        this.setState({ list: originalList }, Helpers.changeFilterDefault);
       // User selected rating so sort by rating descending order
       } else if (value === 'rating') {
         sortedList = sortedList.sort((a, b) => b.rating - a.rating);

@@ -6,7 +6,7 @@ const FilterSort = ({ displayLocation, filterSort }) => (
     <h2 style={{ marginLeft: '20px' }}>{displayLocation}</h2>
     <div className="filter-box">
       Filter By
-      <select name="filter" className="custom-select" defaultValue="DEFAULT" onChange={filterSort}>
+      <select name="filter" className="custom-select" id="filter-options" defaultValue="DEFAULT" onChange={filterSort}>
         <option value="DEFAULT" style={{ fontWeight: '700' }}>No filter</option>
         <option value="rating" disabled>Rating</option>
         <option value="1" style={{ fontWeight: '700' }}>1 star</option>

@@ -24,4 +24,9 @@ export default class Helpers {
     const marker = document.getElementsByClassName(`restaurant${idx}`);
     marker[0].style.backgroundColor = 'blue';
   }
+
+  static changeFilterDefault() {
+    const filterOption = document.getElementById('filter-options');
+    filterOption.selectedIndex = 0;
+  }
 }
