@@ -24,7 +24,7 @@ class App extends Component {
       showRestaurants: false,
       loading: false,
       showRandom: false,
-      url: 'https://foodist-mvp.herokuapp.com/',
+      url: 'https://foodist-mvp.herokuapp.com',
     };
 
     this.handleSearch = this.handleSearch.bind(this);
