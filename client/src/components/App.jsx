@@ -222,7 +222,7 @@ class App extends Component {
       <div>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
         {showRestaurants ? <FilterSort displayLocation={displayLocation} filterSort={this.handleFilterSort} /> : null}
-        {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" onClick={this.rollByUserLocation}>Search by your location</button></div> : null}
+        {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" className="btn btn-primary" onClick={this.rollByUserLocation}>Search by your location</button></div> : null}
         {gallery}
       </div>
     );
