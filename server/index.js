@@ -14,16 +14,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Get all dishes from database
-app.get('/dishes', (req, res) => {
-  Dish.getAllDishes()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(400);
-    });
-});
+// app.get('/dishes', (req, res) => {
+//   Dish.getAllDishes()
+//     .then((data) => {
+//       res.json(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.sendStatus(400);
+//     });
+// });
 
 // Search the yelp api
 app.get('/yelp/search', (req, res) => {

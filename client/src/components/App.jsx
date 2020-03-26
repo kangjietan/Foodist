@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       originalList: [],
       list: [],
+      sortedList: [],
       dishes: [],
       randomList: [],
       randomRestaurant: {},
@@ -24,8 +25,8 @@ class App extends Component {
       showRestaurants: false,
       loading: false,
       showRandom: false,
-      // url: 'http://localhost:3000',
-      url: 'https://foodist-mvp.herokuapp.com',
+      url: 'http://localhost:3000',
+      // url: 'https://foodist-mvp.herokuapp.com',
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -86,14 +87,14 @@ class App extends Component {
 
   // go back to dishes
   goBackHome() {
-    this.setState({ showRestaurants: false, showRandom: false, list: [] });
+    this.setState({ showRestaurants: false, showRandom: false, list: [], sortedList: [] });
   }
 
   // Choose random restaurant
   goRandomPage() {
     const { searchLocation, url } = this.state;
     const params = { location: searchLocation, term: 'food', limit: 50 };
-    this.setState({ loading: true });
+    this.setState({ loading: true, sortedList: [] });
 
     axios.get(`${url}/yelp/search`, {
       params,
@@ -129,8 +130,17 @@ class App extends Component {
 
     // Filtering
     if (name === 'filter') {
-      const { originalList } = this.state;
-      let filteredList = originalList.slice();
+      const { originalList, sortedList } = this.state;
+      let filteredList;
+
+      // If list has been sorted, filter that list
+      if (sortedList.length) {
+        filteredList = sortedList.slice();
+      } else {
+        filteredList = originalList.slice();
+      }
+
+      // Check user input value
       if (value === 'DEFAULT') {
         this.setState({ list: filteredList });
       } else if (value.indexOf('$') >= 0) {
@@ -141,7 +151,7 @@ class App extends Component {
         this.setState({ list: filteredList });
       } else {
         const rating = Number(value);
-        filteredList = filteredList.filter((restaurant) => restaurant.rating <= rating);
+        filteredList = filteredList.filter((restaurant) => restaurant.rating >= rating && restaurant.rating < (rating + 1));
         this.setState({ list: filteredList });
       }
     // Sorting
@@ -151,11 +161,11 @@ class App extends Component {
       let sortedList = list.slice();
       // User selected recommended so default list
       if (value === 'recommended') {
-        this.setState({ list: originalList }, Helpers.changeFilterDefault);
+        this.setState({ list: originalList, sortedList: [] }, Helpers.changeFilterDefault);
       // User selected rating so sort by rating descending order
       } else if (value === 'rating') {
         sortedList = sortedList.sort((a, b) => b.rating - a.rating);
-        this.setState({ list: sortedList });
+        this.setState({ list: sortedList, sortedList });
       // User selected rating so sort by rating ascending order
       } else if (value === 'pricing') {
         sortedList = sortedList.sort((a, b) => {
@@ -163,11 +173,11 @@ class App extends Component {
           const price2 = b.price === undefined ? 0 : b.price.length;
           return price1 - price2;
         });
-        this.setState({ list: sortedList });
+        this.setState({ list: sortedList, sortedList });
       // User selected rating so sort by rating descending order
       } else if (value === 'reviews') {
         sortedList = sortedList.sort((a, b) => b.review_count - a.review_count);
-        this.setState({ list: sortedList });
+        this.setState({ list: sortedList, sortedList });
       }
     }
   }
