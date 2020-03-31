@@ -11,10 +11,10 @@ const createMarkers = (restaurants) => {
   return markers;
 };
 
-const Map = ({ restaurant, restaurants }) => (
+const Map = ({ restaurant, restaurants, coords }) => (
   <GoogleMapReact
     bootstrapURLKeys={{ key: GOOGLE_API_KEY }}
-    defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
+    defaultCenter={{ lat: coords.latitude, lng: coords.longitude }}
     defaultZoom={11}
   >
     {restaurant ? <Marker lat={restaurant.coordinates.latitude} lng={restaurant.coordinates.longitude} idx="1" color="blue" /> : null}

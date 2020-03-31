@@ -25,8 +25,8 @@ class App extends Component {
       showRestaurants: false,
       loading: false,
       showRandom: false,
-      // url: 'http://localhost:3000',
-      url: 'https://foodist-mvp.herokuapp.com',
+      url: 'http://localhost:3000',
+      // url: 'https://foodist-mvp.herokuapp.com',
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -219,9 +219,11 @@ class App extends Component {
     } = this.state;
 
     let gallery = showRestaurants ? <RestaurantsList list={list} /> : <Gallery list={dishes} search={this.handleSearch} />;
+    let filterSort = showRestaurants ? <FilterSort displayLocation={displayLocation} filterSort={this.handleFilterSort} /> : null;
 
     if (loading) {
       gallery = null;
+      filterSort = null;
     }
 
     if (showRandom) {
@@ -231,7 +233,7 @@ class App extends Component {
     return (
       <div>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
-        {showRestaurants ? <FilterSort displayLocation={displayLocation} filterSort={this.handleFilterSort} /> : null}
+        {filterSort}
         {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" className="btn btn-primary" onClick={this.rollByUserLocation}>Search by your location</button></div> : null}
         {gallery}
       </div>

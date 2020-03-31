@@ -10,7 +10,7 @@ const RestaurantsList = ({ list }) => (
       {list.map((entry, idx) => <Restaurant entry={entry} key={entry.id} idx={idx + 1} />)}
     </div>
     <div className="restaurants-map-box" style={{ height: '80vh', width: '100%' }}>
-      <Map restaurants={list} />
+      <Map restaurants={list} coords={list[0].coordinates} />
     </div>
   </div>
 );
