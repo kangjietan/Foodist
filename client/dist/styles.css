@@ -251,6 +251,12 @@
   position: relative;
 }
 
+@media (max-height: 500px) {
+  .random-restaurant-box {
+    height: 100vh;
+  }
+}
+
 .random-restaurant-name {
   font-weight: 600;
   font-size: 1.5vmax;
