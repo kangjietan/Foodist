@@ -112,7 +112,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   font-family: "Roboto";
-  width: 60%;
+  width: 70%;
 }
 
 .restaurant-container {
@@ -151,7 +151,7 @@
 
 .restaurant-info-box {
   width: 100%;
-  font-size: 1vmax;
+  font-size: 1em;
 }
 
 .restaurant-info {
@@ -165,14 +165,14 @@
 
 .main-name {
   font-weight: 600;
-  font-size: 1vmax;
+  font-size: 1em;
 }
 
 .misc-info {
   margin-right: 5px;
   text-align: right;
   color: #888888;
-  font-size: 0.75vmax;
+  font-size: 0.75em;
 }
 
 .catergory-transactions-box {
@@ -338,5 +338,11 @@
 @media (max-width: 991px) and (orientation: landscape) and (max-height: 414px) {
   .dish-box {
     height: 45vh;
+  }
+}
+
+@media (max-width: 1140px) {
+  .restaurant-list-container {
+    width: 100%;
   }
 }
