@@ -218,7 +218,7 @@
   display: inline-block;
   unicode-bidi: bidi-override;
   color: #888888;
-  font-size: 1.25vmax;
+  font-size: 1em;
   width: auto;
   position: relative;
 }
@@ -258,7 +258,7 @@
 
 .random-restaurant-name {
   font-weight: 600;
-  font-size: 1.5vmax;
+  font-size: 1em;
 }
 
 .random-image-box {
@@ -316,6 +316,19 @@
   }
 }
 
+@media (max-height: 800px) {
+  .random-restaurant-box {
+    height: 60vh !important;
+  }
+}
+
+/* Iphone 5/SE */
+@media (max-height: 568px) {
+  .random-restaurant-box {
+    height: 70vh !important;
+  }
+}
+
 @media (max-width: 991px) {
   .dish-box {
     width: 30%;
@@ -348,6 +361,21 @@
 
   .restaurant-container {
     height: 25vh;
+  }
+
+  .random-container {
+    flex-direction: column;
+  }
+
+  .random-restaurant-box {
+    height: 50vh;
+    width: 100%;
+    margin: 10px 0px;
+  }
+
+  .map-container {
+    height: 50vh;
+    width: 100%;
   }
 }
 
