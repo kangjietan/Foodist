@@ -334,3 +334,9 @@
     height: 50vh;
   }
 }
+
+@media (max-width: 991px) and (orientation: landscape) and (max-height: 414px) {
+  .dish-box {
+    height: 45vh;
+  }
+}
