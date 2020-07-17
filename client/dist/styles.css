@@ -8,7 +8,7 @@
   z-index: 10;
   background-color: #e3f2fd;
   margin-bottom: 10px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 .form-row {
@@ -27,7 +27,7 @@
 }
 
 .form-control {
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   cursor: text;
 }
 
@@ -55,7 +55,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 /* Dish */
@@ -65,7 +65,8 @@
   flex-direction: column;
   width: 20%;
   height: 25vh;
-  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  box-shadow: 0 0 0 1px rgba(67, 41, 163, 0.08),
+    0 1px 5px 0 rgba(67, 41, 163, 0.08);
   border-radius: 4px;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -73,7 +74,8 @@
 }
 
 .dish-box:hover {
-  box-shadow: 0 0 0 2px rgba(67,41,163,0.3), 0 1px 5px 0 rgba(67,41,163,0.3);
+  box-shadow: 0 0 0 2px rgba(67, 41, 163, 0.3),
+    0 1px 5px 0 rgba(67, 41, 163, 0.3);
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }
@@ -91,7 +93,7 @@
 
 .dish-name-box {
   margin: 3%;
-  font-size: 1vw;
+  font-size: 1em;
   font-weight: 600;
 }
 
@@ -109,7 +111,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   width: 60%;
 }
 
@@ -122,12 +124,14 @@
   margin-right: 10px;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  box-shadow: 0 0 0 1px rgba(67, 41, 163, 0.08),
+    0 1px 5px 0 rgba(67, 41, 163, 0.08);
   position: relative;
 }
 
 .restaurant-container:hover {
-  box-shadow: 0 0 0 2px rgba(67,41,163,0.2), 0 1px 5px 0 rgba(67,41,163,0.2);
+  box-shadow: 0 0 0 2px rgba(67, 41, 163, 0.2),
+    0 1px 5px 0 rgba(67, 41, 163, 0.2);
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }
@@ -157,7 +161,7 @@
   padding-top: 10px;
   width: 100%;
 }
-  /* Main info */
+/* Main info */
 
 .main-name {
   font-weight: 600;
@@ -187,7 +191,7 @@
 /* Button */
 
 .btn-search {
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   background-image: url("./search.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -238,23 +242,18 @@
 
 .random-container {
   display: flex;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 .random-restaurant-box {
   width: 40%;
   height: 60vh;
-  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  box-shadow: 0 0 0 1px rgba(67, 41, 163, 0.08),
+    0 1px 5px 0 rgba(67, 41, 163, 0.08);
   border-radius: 4px;
   margin-right: 10px;
   text-align: center;
   position: relative;
-}
-
-@media (max-height: 500px) {
-  .random-restaurant-box {
-    height: 100vh;
-  }
 }
 
 .random-restaurant-name {
@@ -275,7 +274,8 @@
 }
 
 .map-container {
-  box-shadow: 0 0 0 1px rgba(67,41,163,.08), 0 1px 5px 0 rgba(67,41,163,.08);
+  box-shadow: 0 0 0 1px rgba(67, 41, 163, 0.08),
+    0 1px 5px 0 rgba(67, 41, 163, 0.08);
   width: 60%;
 }
 
@@ -307,4 +307,30 @@
 
 .sort-box {
   margin-left: 10px;
+}
+
+/* Media Queries */
+@media (max-height: 500px) {
+  .random-restaurant-box {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 991px) {
+  .dish-box {
+    width: 30%;
+  }
+}
+
+@media (max-width: 767px) {
+  .dish-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 550px) {
+  .dish-box {
+    width: 90%;
+    height: 50vh;
+  }
 }
