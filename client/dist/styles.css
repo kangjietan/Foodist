@@ -326,6 +326,18 @@
   .dish-box {
     width: 45%;
   }
+
+  .restaurants-container {
+    flex-direction: column-reverse;
+  }
+
+  .restaurants-map-box {
+    height: 40vh !important;
+    margin-top: 0;
+    margin-bottom: 10px;
+    z-index: 1000;
+    top: 15vh;
+  }
 }
 
 @media (max-width: 550px) {
