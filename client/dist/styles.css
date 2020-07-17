@@ -379,6 +379,7 @@
   }
 }
 
+/* Iphones */
 @media (max-width: 991px) and (orientation: landscape) and (max-height: 414px) {
   .dish-box {
     height: 45vh;
@@ -390,6 +391,10 @@
 
   .restaurants-map-box {
     top: 0;
+  }
+
+  .random-restaurant-box {
+    height: 110vh !important;
   }
 }
 
