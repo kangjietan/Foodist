@@ -1,6 +1,8 @@
 # Foodist
 Pick a dish and see which restaurants will serve that. If nothing you like is listed, you can also search! Not sure where to eat, have a place chosen for you!
 
+Live site: [https://foodist-mvp.herokuapp.com/](https://foodist-mvp.herokuapp.com/)
+
 ## Getting Started
 
 ### Installation
