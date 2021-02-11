@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -w",
-    "start": "nodemon ./server/index.js",
-    "react-prod": "webpack -p",
+    "start-dev": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
+    "build": "webpack -p",
     "start-prod": "node ./server/index.js",
     "seed": "node database/controllers/seed.js",
     "seedStart": "npm run seed & npm run start-prod"
@@ -26,6 +27,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^1.19.4",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   },
@@ -36,7 +38,6 @@
     "express": "^4.17.1",
     "google-map-react": "^1.1.6",
     "mongoose": "^5.9.2",
-    "nodemon": "^1.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
