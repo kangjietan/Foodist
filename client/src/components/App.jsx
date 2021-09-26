@@ -154,7 +154,7 @@ class App extends Component {
         filteredList = filteredList.filter((restaurant) => restaurant.rating >= rating && restaurant.rating < (rating + 1));
         this.setState({ list: filteredList });
       }
-    // Sorting
+      // Sorting
     } else if (name === 'sort') {
       const { list, originalList } = this.state;
       // Don't mutate original list
@@ -162,11 +162,11 @@ class App extends Component {
       // User selected recommended so default list
       if (value === 'recommended') {
         this.setState({ list: originalList, sortedList: [] }, Helpers.changeFilterDefault);
-      // User selected rating so sort by rating descending order
+        // User selected rating so sort by rating descending order
       } else if (value === 'rating') {
         sortedList = sortedList.sort((a, b) => b.rating - a.rating);
         this.setState({ list: sortedList, sortedList });
-      // User selected rating so sort by rating ascending order
+        // User selected rating so sort by rating ascending order
       } else if (value === 'pricing') {
         sortedList = sortedList.sort((a, b) => {
           const price1 = a.price === undefined ? 0 : a.price.length;
@@ -174,7 +174,7 @@ class App extends Component {
           return price1 - price2;
         });
         this.setState({ list: sortedList, sortedList });
-      // User selected rating so sort by rating descending order
+        // User selected rating so sort by rating descending order
       } else if (value === 'reviews') {
         sortedList = sortedList.sort((a, b) => b.review_count - a.review_count);
         this.setState({ list: sortedList, sortedList });
@@ -231,8 +231,9 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div style={{ textAlign: 'center' }}>
         <Search updateLoc={this.updateLocation} search={this.handleSearch} home={this.goBackHome} random={this.goRandomPage} />
+        <p>This version of Foodist is out of date. Check out the newer version <a href="https://foodist-v2.herokuapp.com/">here</a>.</p>
         {filterSort}
         {showRandom ? <div className="container" style={{ textAlign: 'center' }}><button type="button" className="btn btn-primary" onClick={this.rollByUserLocation}>Search by your location</button></div> : null}
         {gallery}
